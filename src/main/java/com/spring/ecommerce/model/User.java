@@ -3,12 +3,13 @@ package com.spring.ecommerce.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "user_")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,5 +37,5 @@ public class User {
             fetch = FetchType.LAZY,
             cascade = CascadeType.REMOVE
     )
-    private List<Address> address;
+    private List<Address> addresses = new ArrayList<>();
 }

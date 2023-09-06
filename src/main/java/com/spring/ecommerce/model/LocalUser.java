@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "user_")
-public class User {
+public class LocalUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)

@@ -17,7 +17,7 @@ public class Order {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private LocalUser user;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "address_id", nullable = false)

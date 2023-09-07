@@ -4,15 +4,14 @@ import com.spring.ecommerce.api.model.LoginBody;
 import com.spring.ecommerce.api.model.LoginResponse;
 import com.spring.ecommerce.api.model.RegistrationBody;
 import com.spring.ecommerce.exception.UserAlreadyExistException;
+import com.spring.ecommerce.model.LocalUser;
 import com.spring.ecommerce.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -41,4 +40,8 @@ public class AuthenticationController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/me")
+    public LocalUser getUserData (@AuthenticationPrincipal LocalUser user) {
+        return user;
+    }
 }
